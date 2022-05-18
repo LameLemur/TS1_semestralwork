@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +20,9 @@ public class BookListPage extends MainPage {
     public List<String> getAllBookTitles() {
         List<String> titles = new ArrayList<>();
         List<WebElement> bookA = driver.findElements(By.xpath("//div[@id='left_less']/div/a[@class='bigger odright_pet']"));
+
         for (WebElement we : bookA) {
+//            webDriverWait.until(ExpectedConditions.elementToBeClickable(we));
             titles.add(we.getText());
         }
         return titles;

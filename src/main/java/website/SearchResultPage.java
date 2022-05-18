@@ -35,8 +35,12 @@ public class SearchResultPage extends MainPage {
     }
 
     public BookPage getBookOnIndex(int index) {
+        try {
+            Thread.sleep(200);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         WebElement element = driver.findElements(By.xpath("//p[@class='new']/a[@class]")).get(index);
-        WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(1000));
         webDriverWait.until(ExpectedConditions.elementToBeClickable(element));
         element.click();
         return new BookPage(driver);

@@ -53,6 +53,7 @@ public class BookPage extends MainPage {
     }
 
     public String getName() {
+        webDriverWait.until(ExpectedConditions.elementToBeClickable(titleName));
         return titleName.getText();
     }
 
